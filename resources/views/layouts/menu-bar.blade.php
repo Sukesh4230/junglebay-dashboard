@@ -12,15 +12,14 @@
 
                 <li class="nav-item">
                     <!-- label-->
-                    <p class="navbar-vertical-label">Junglebay
-                    </p>
+                    <p class="navbar-vertical-label">Junglebay </p>
                     <hr class="navbar-vertical-line" />
                     <!-- parent pages-->
-                    <div class="nav-item-wrapper"><a class="nav-link label-1" href="/" asd="index"
+                    <div class="nav-item-wrapper"><a class="nav-link label-1" href={{ route('home') }} asd="index"
                             role="button" data-bs-toggle="" aria-expanded="false">
-                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                        data-feather="home"></span></span><span class="nav-link-text-wrapper"><span
-                                        class="nav-link-text">Home Page</span></span>
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><span data-feather="home"></span></span>
+                                <span class="nav-link-text-wrapper"><span class="nav-link-text">Home Page</span></span>
                             </div>
                         </a>
                     </div>
@@ -37,11 +36,20 @@
                             <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="e-commerce">
                                 <li class="collapsed-nav-item-title d-none">Stay
                                 </li>
-
-                                <li class="nav-item"><a class="nav-link" href="/admin-poolvilla" asd="index"
+                                @foreach (\App\Models\Room::get() as $room)
+                                    <li class="nav-item">
+                                        <a class="nav-link" href={{ route('stays.show', $room->id) }} asd="index"
+                                            data-bs-toggle="" aria-expanded="false">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-text">{{ $room->name }}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endforeach
+                                {{-- <li class="nav-item"><a class="nav-link" href="/admin-poolvilla" asd="index"
                                         data-bs-toggle="" aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">Duke’s Pool
-                                                Villa</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Duke’s Pool Villa</span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
@@ -49,8 +57,8 @@
 
                                 <li class="nav-item"><a class="nav-link" href="/admin-beetle" asd="index"
                                         data-bs-toggle="" aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">Beetle – The
-                                                Tree House</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Beetle – The Tree House</span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
@@ -58,8 +66,8 @@
 
                                 <li class="nav-item"><a class="nav-link" href="/admin-jacuzzivilla" asd="index"
                                         data-bs-toggle="" aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">Regal Jacuzzi
-                                                Villa</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Regal Jacuzzi Villa</span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
@@ -67,8 +75,8 @@
 
                                 <li class="nav-item"><a class="nav-link" href="/admin-bougainvilla" asd="index"
                                         data-bs-toggle="" aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">Bougain
-                                                Villa</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Bougain Villa</span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
@@ -76,8 +84,8 @@
 
                                 <li class="nav-item"><a class="nav-link" href="/admin-pavilionroom" asd="index"
                                         data-bs-toggle="" aria-expanded="false">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">Pavilion
-                                                Room</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text">Pavilion Room</span>
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
@@ -89,31 +97,22 @@
                                         </div>
                                     </a>
                                     <!-- more inner pages-->
-                                </li>
+                                </li> --}}
 
                             </ul>
                         </div>
                     </div>
 
-                    <div class="nav-item-wrapper"><a class="nav-link label-1" href="/admin-spa" asd="index"
-                            role="button" data-bs-toggle="" aria-expanded="false">
-                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                        data-feather="loader"></span></span><span class="nav-link-text-wrapper"><span
-                                        class="nav-link-text">Spa</span></span>
-                            </div>
-                        </a>
-                    </div>
-
-
-
-
-                   
-                    <!-- parent pages-->
-                    <div class="nav-item-wrapper"><a class="nav-link label-1" href="/admin-amenities" asd="index"
-                            role="button" data-bs-toggle="" aria-expanded="false">
-                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                        data-feather="speaker"></span></span><span
-                                    class="nav-link-text-wrapper"><span class="nav-link-text">Amenities</span></span>
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link label-1" href={{ route('spa.index') }} asd="index" role="button"
+                            data-bs-toggle="" aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon">
+                                    <span data-feather="loader"></span>
+                                </span>
+                                <span class="nav-link-text-wrapper">
+                                    <span class="nav-link-text">Spa</span>
+                                </span>
                             </div>
                         </a>
                     </div>
@@ -122,12 +121,26 @@
 
 
 
-                    
-                   
-                    
                     <!-- parent pages-->
-                    <div class="nav-item-wrapper"><a class="nav-link label-1" href="/admin-activities" asd="index"
-                            role="button" data-bs-toggle="" aria-expanded="false">
+                    <div class="nav-item-wrapper"><a class="nav-link label-1" href={{ route('amenities.index') }}
+                            asd="index" role="button" data-bs-toggle="" aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><span data-feather="speaker"></span></span>
+                                <span class="nav-link-text-wrapper"><span class="nav-link-text">Amenities</span></span>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+
+
+
+
+
+                    <!-- parent pages-->
+                    <div class="nav-item-wrapper"><a class="nav-link label-1" href={{ route('activities.index') }}
+                            asd="index" role="button" data-bs-toggle="" aria-expanded="false">
                             <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                         data-feather="flag"></span></span><span class="nav-link-text-wrapper"><span
                                         class="nav-link-text">Activities</span></span>
@@ -136,11 +149,14 @@
                     </div>
 
 
-                    <div class="nav-item-wrapper"><a class="nav-link label-1" href="/admin-wayanad" asd="index"
-                            role="button" data-bs-toggle="" aria-expanded="false">
-                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                        data-feather="map"></span></span><span class="nav-link-text-wrapper"><span
-                                        class="nav-link-text">Discover Wayanad</span></span>
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link label-1" href={{ route('discovers.index') }} asd="index" role="button"
+                            data-bs-toggle="" aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon"><span data-feather="map"></span></span>
+                                <span class="nav-link-text-wrapper">
+                                    <span class="nav-link-text">Discover Wayanad</span>
+                                </span>
                             </div>
                         </a>
                     </div>
@@ -154,12 +170,12 @@
                         </a>
                     </div>
 
-                    
+
                     <div class="nav-item-wrapper"><a class="nav-link label-1" href="/admin-blog" asd="index"
                             role="button" data-bs-toggle="" aria-expanded="false">
                             <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                        data-feather="file-text"></span></span><span class="nav-link-text-wrapper"><span
-                                        class="nav-link-text">Blog</span></span>
+                                        data-feather="file-text"></span></span><span
+                                    class="nav-link-text-wrapper"><span class="nav-link-text">Blog</span></span>
                             </div>
                         </a>
                     </div>
@@ -172,12 +188,21 @@
                             </div>
                         </a>
                     </div>
-                    <div class="nav-item-wrapper"><a class="nav-link label-1" href="showcase.html" asd="index"
-                            role="button" data-bs-toggle="" aria-expanded="false">
-                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                        data-feather="power"></span></span><span class="nav-link-text-wrapper"><span
-                                        class="nav-link-text">Logout</span></span>
-                            </div>
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link label-1" href="{{ route('logout') }}" asd="index" role="button"
+                            data-bs-toggle="" aria-expanded="false"
+                            onclick="event.preventDefault(); document.getElementById('logout-form1').submit();">
+                            <form id="logout-form1" action="{{ route('logout') }}" method="POST">
+                                {{ csrf_field() }}
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon">
+                                        <span data-feather="power"></span>
+                                    </span>
+                                    <span class="nav-link-text-wrapper">
+                                        <span class="nav-link-text">Logout</span>
+                                    </span>
+                                </div>
+                            </form>
                         </a>
                     </div>
 
